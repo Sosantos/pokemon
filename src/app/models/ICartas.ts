@@ -1,5 +1,5 @@
-import { ICarta } from './ICarta';
+import { ICard } from './ICard';
 
 export interface ICartas {
-    cards: Array<ICarta>;
+    cards: Array<ICard>;
 }
