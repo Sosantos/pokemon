@@ -11,12 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetalheComponent } from './detalhe/detalhe.component';
+import { ListarComponent } from './listar/listar.component';
+import { BuscarComponent } from './buscar/buscar.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetalheComponent
+    DetalheComponent,
+    ListarComponent,
+    BuscarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { DetalheComponent } from './detalhe/detalhe.component';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   exports: [
     MatButtonModule,

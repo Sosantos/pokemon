@@ -20,6 +20,14 @@ import { retry, catchError } from 'rxjs/operators';
           catchError(this.handleError));
     }
 
+    // const pokemon = require('pokemontcgsdk')
+    // teste() {
+    //   pokemon.card.all()
+    //   .on('data', function (card) {
+    //     console.log(card.name)
+    //   });
+    // }
+
     handleError(error: HttpErrorResponse) {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
