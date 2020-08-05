@@ -19,7 +19,7 @@ export class AppComponent {
 
   // Chama o serviço para obtém todos os carros
   getCards() {
-    this.cardsService.gerCards().subscribe((cards: ICartas) => {
+    this.cardsService.getCards().subscribe((cards: ICartas) => {
       this.cartas = cards;
     });
   }

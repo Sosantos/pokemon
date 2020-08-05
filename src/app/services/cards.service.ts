@@ -14,7 +14,7 @@ import { retry, catchError } from 'rxjs/operators';
         this.apiUrl = environment.APIURL;
      }
 
-     gerCards(): Observable<ICartas>{
+     getCards(): Observable<ICartas>{
         return this.httpClient.get<ICartas>(this.apiUrl + 'cards')
         .pipe(
           retry(2),
