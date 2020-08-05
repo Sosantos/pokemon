@@ -1,6 +1,6 @@
 <section>
     <article *ngFor="let carta of cartas">
-      <a routerLink="/detalhe/" routerLinkActive="active">
+      <a routerLink="/detalhe/{{ carta.id }}" routerLinkActive="active">
         <div class='pokemonCarta'>
           <div><img src = "{{ carta.imageUrl }}" alt="Foto do {{carta.nome}}"></div>
           <div>Nome: {{ carta.name }}</div>
