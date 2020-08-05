@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CardsService } from './services/cards.service';
+import { ICartas } from './models/ICartas';
 
 
 @Component({
@@ -8,4 +10,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pokemon';
+  cartas: ICartas;
+  constructor(private cardsService: CardsService) {}
+
+  ngOnInit() {
+    this.getCards();
+  }
+
+  // Chama o serviço para obtém todos os carros
+  getCards() {
+    this.cardsService.gerCards().subscribe((cards: ICartas) => {
+      this.cartas = cards;
+    });
+  }
+
 }
