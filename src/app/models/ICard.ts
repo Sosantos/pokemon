@@ -6,7 +6,7 @@ export interface ICard {
     name: string;
     nationalPokedexNumber?: number;
     imageUrl: string;
-    imageUrlHiRes?: string;
+    imageUrlHiRes: string;
     types?: Array<string>;
     supertype: string;
     subtype: string;

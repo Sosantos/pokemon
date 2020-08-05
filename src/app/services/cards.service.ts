@@ -20,13 +20,12 @@ import { retry, catchError } from 'rxjs/operators';
           catchError(this.handleError));
     }
 
-    // const pokemon = require('pokemontcgsdk')
-    // teste() {
-    //   pokemon.card.all()
-    //   .on('data', function (card) {
-    //     console.log(card.name)
-    //   });
-    // }
+    getCard(id): Observable<any>{
+        return this.httpClient.get<any>(this.apiUrl + 'cards/' + id)
+        .pipe(
+          retry(2),
+          catchError(this.handleError));
+    }
 
     handleError(error: HttpErrorResponse) {
         let errorMessage = '';

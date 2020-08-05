@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="cartas; else naoExiste">
     <article *ngFor="let carta of cartas">
       <a routerLink="/detalhe/{{ carta.id }}" routerLinkActive="active">
         <div class='pokemonCarta'>
@@ -15,3 +15,9 @@
       </a>
     </article>
   </section>
+
+<ng-template #naoExiste>
+  <article>
+    <h2> Não existem resultados para a sua pesquisa</h2>
+  </article>
+</ng-template>

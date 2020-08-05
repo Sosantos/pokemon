@@ -9,7 +9,6 @@ import { CardsService } from '../services/cards.service';
 })
 export class ListarComponent implements OnInit {
 
-  title = 'pokemon';
   cartas: Array<ICard>;
   constructor(private cardsService: CardsService) {}
 
@@ -17,7 +16,6 @@ export class ListarComponent implements OnInit {
     this.getCards();
   }
 
-  // Chama o serviço para obtém todos os cards (100 por vez)
   getCards() {
     this.cardsService.getCards().subscribe((cards) => {
       this.cartas = JSON.parse(JSON.stringify(cards.cards));
