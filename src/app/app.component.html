@@ -9,6 +9,16 @@
     </form>
   </header>
   <article *ngFor="let carta of cartas">
-    <div>{{ carta.name }}</div>
+    <div class='pokemonCarta'>
+      <div><img src = "{{ carta.imageUrl }}" alt="Foto do {{carta.nome}}"></div>
+      <div>Nome: {{ carta.name }}</div>
+      <div>Id : {{ carta.id }}</div>
+      <div *ngIf="carta.types">
+        Tipos: 
+        <ul *ngFor="let tipo of carta.types">
+          <li>{{ tipo }}</li>
+        </ul>
+      </div>
+    </div>
   </article>
 </section>

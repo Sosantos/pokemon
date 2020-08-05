@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
-import { ICartas } from '../models/ICartas';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -14,8 +13,8 @@ import { retry, catchError } from 'rxjs/operators';
         this.apiUrl = environment.APIURL;
      }
 
-     getCards(): Observable<ICartas>{
-        return this.httpClient.get<ICartas>(this.apiUrl + 'cards')
+     getCards(): Observable<any>{
+        return this.httpClient.get<any>(this.apiUrl + 'cards')
         .pipe(
           retry(2),
           catchError(this.handleError));
