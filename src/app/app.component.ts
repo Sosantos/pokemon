@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardsService } from './services/cards.service';
-import { ICartas } from './models/ICartas';
+import { ICard } from './models/ICard';
 
 
 @Component({
@@ -8,9 +8,9 @@ import { ICartas } from './models/ICartas';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'pokemon';
-  cartas: ICartas;
+  cartas: Array<ICard>;
   constructor(private cardsService: CardsService) {}
 
   ngOnInit() {
@@ -19,8 +19,8 @@ export class AppComponent {
 
   // Chama o serviço para obtém todos os carros
   getCards() {
-    this.cardsService.getCards().subscribe((cards: ICartas) => {
-      this.cartas = cards;
+    this.cardsService.getCards().subscribe((cards) => {
+      this.cartas = JSON.parse(JSON.stringify(cards.cards));
     });
   }
 
