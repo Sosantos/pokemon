@@ -25,7 +25,7 @@ export class ListarComponent implements OnInit {
   getCards() {
     this.cardsService.getCards(this.nome).subscribe((cards) => {
       this.cartas = JSON.parse(JSON.stringify(cards.cards));
-      // this.cartas.sort((a, b) => a.name > b.name ? -1 : 1);
+      this.cartas.sort((a, b) => a.name > b.name ? 1 : -1);
     });
   }
 
