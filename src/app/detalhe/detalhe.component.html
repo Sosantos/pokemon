@@ -1,36 +1,42 @@
 <section *ngIf="carta; else naoExiste">
+  <div id="img">
     <div><img src="{{ carta.imageUrlHiRes }}" alt="foto do {{ carta.name}}" ></div>
+  </div>
+
+  <div id="detalhes">
     <div><span class="h2">Nome:</span> {{carta.name}}</div>
     <div><span class="h2">Id:</span> {{carta.id}}</div>
     <div *ngIf="carta.types">
-        <h2>Tipos: </h2>
-        <ul *ngFor="let tipo of carta.types">
-            <li>{{ tipo }}</li>
-        </ul>
-      </div>
-      <div *ngIf="carta.attacks">
-        <h2>Ataques: </h2>
-        <ul *ngFor="let ataque of carta.attacks">
-            <li><span class='destaque'>Nome: {{ ataque.name }}</span></li>
-            <li>Dano: {{ ataque.name }}</li>
-            <li *ngFor="let cost of ataque.cost">Nome: {{ cost }}</li>
-            <li>Descrição: {{ ataque.text }}</li>
-        </ul>
-      </div>
+      <h2>Tipos: </h2>
+      <ul *ngFor="let tipo of carta.types">
+          <li>{{ tipo }}</li>
+      </ul>
+    </div>
 
-      <div *ngIf="carta.resistances">
-        <h2>Resistências:</h2>
-        <ul *ngFor="let resist of carta.resistances">
-            <li>{{ resist.type }} : {{ resist.value }}</li>
-        </ul>
-      </div>
+    <div *ngIf="carta.attacks">
+      <h2>Ataques: </h2>
+      <ul *ngFor="let ataque of carta.attacks">
+          <li><span class='destaque'>Nome: {{ ataque.name }}</span></li>
+          <li>Dano: {{ ataque.name }}</li>
+          <li *ngFor="let cost of ataque.cost">Nome: {{ cost }}</li>
+          <li>Descrição: {{ ataque.text }}</li>
+      </ul>
+    </div>
 
-      <div *ngIf="carta.attacks">
-        <h2>Fraquezas: </h2>
-        <ul *ngFor="let fraqueza of carta.weaknesses">
-            <li>{{ fraqueza.type }} : {{ fraqueza.value }}</li>
-        </ul>
-      </div>
+    <div *ngIf="carta.resistances">
+      <h2>Resistências:</h2>
+      <ul *ngFor="let resist of carta.resistances">
+          <li>{{ resist.type }} : {{ resist.value }}</li>
+      </ul>
+    </div>
+
+    <div *ngIf="carta.attacks">
+      <h2>Fraquezas: </h2>
+      <ul *ngFor="let fraqueza of carta.weaknesses">
+          <li>{{ fraqueza.type }} : {{ fraqueza.value }}</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <ng-template #naoExiste>

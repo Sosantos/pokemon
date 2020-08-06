@@ -3,10 +3,10 @@
       <a routerLink="/detalhe/{{ carta.id }}" routerLinkActive="active">
         <div class='pokemonCarta'>
           <div><img src = "{{ carta.imageUrl }}" alt="Foto do {{carta.nome}}"></div>
-          <div>Nome: {{ carta.name }}</div>
-          <div>Id : {{ carta.id }}</div>
+          <div><span class="h2">Nome: </span>{{ carta.name }}</div>
+          <div><span class="h2">Id :</span> {{ carta.id }}</div>
           <div *ngIf="carta.types">
-            Tipos: 
+            <h2>Tipos: </h2>
             <ul *ngFor="let tipo of carta.types">
               <li>{{ tipo }}</li>
             </ul>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CardsService } from '../services/cards.service';
 import { ICard } from '../models/ICard';
-import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-detalhe',
@@ -27,7 +26,6 @@ export class DetalheComponent implements OnInit {
   getCard() {
     this.cardsService.getCard(this.id).subscribe((card) => {
       this.carta = JSON.parse(JSON.stringify(card.card));
-      console.log(this.carta);
     });
   }
 
