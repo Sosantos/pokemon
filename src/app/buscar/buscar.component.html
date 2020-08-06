@@ -1,9 +1,11 @@
 <header>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="buscaForm" (ngSubmit)="onFormSubmit()">
         <mat-form-field appearance="outline">
         <mat-label>Buscar</mat-label>
-        <input matInput placeholder="Quem é esse pokemon?">
-        <mat-icon matSuffix>search</mat-icon>
+        <input matInput required placeholder="Quem é esse pokemon?" name="nome" id="nome" formControlName="nome" >
+        <button type="submit" id="btnPesquisa">
+            <mat-icon matSuffix>search</mat-icon>
+        </button>
         </mat-form-field>
     </form>
 </header>

@@ -15,6 +15,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'listar/:nome',
+    component: ListarComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'detalhe/:id',
     component: DetalheComponent,
     pathMatch: 'full'

@@ -13,8 +13,10 @@ import { retry, catchError } from 'rxjs/operators';
         this.apiUrl = environment.APIURL;
      }
 
-     getCards(): Observable<any>{
-        return this.httpClient.get<any>(this.apiUrl + 'cards')
+     getCards(nome?: string): Observable<any>{
+        let url = this.apiUrl + 'cards';
+        url = nome ? url + '?name=' + nome : url;
+        return this.httpClient.get<any>(url)
         .pipe(
           retry(2),
           catchError(this.handleError));

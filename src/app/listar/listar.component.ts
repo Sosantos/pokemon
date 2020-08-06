@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICard } from '../models/ICard';
 import { CardsService } from '../services/cards.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -10,14 +11,19 @@ import { CardsService } from '../services/cards.service';
 export class ListarComponent implements OnInit {
 
   cartas: Array<ICard>;
-  constructor(private cardsService: CardsService) {}
+  nome: string;
+  constructor(
+    private cardsService: CardsService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.nome = this.activatedRoute.snapshot.paramMap.get('nome');
     this.getCards();
   }
 
   getCards() {
-    this.cardsService.getCards().subscribe((cards) => {
+    this.cardsService.getCards(this.nome).subscribe((cards) => {
       this.cartas = JSON.parse(JSON.stringify(cards.cards));
     });
   }
