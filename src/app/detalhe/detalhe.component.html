@@ -1,6 +1,6 @@
 <section *ngIf="carta; else naoExiste">
   <div id="img">
-    <div><img src="{{ carta.imageUrlHiRes }}" alt="foto do {{ carta.name}}" ></div>
+    <div><img src="{{ carta.imageUrlHiRes }}" class="img-fluid" alt="foto do {{ carta.name}}" ></div>
   </div>
 
   <div id="detalhes">
@@ -16,9 +16,9 @@
     <div *ngIf="carta.attacks">
       <h2>Ataques: </h2>
       <ul *ngFor="let ataque of carta.attacks">
-          <li><span class='destaque'>Nome: {{ ataque.name }}</span></li>
+          <li><span class='h2'>Nome: {{ ataque.name }}</span></li>
           <li>Dano: {{ ataque.name }}</li>
-          <li *ngFor="let cost of ataque.cost">Nome: {{ cost }}</li>
+          <li *ngFor="let cost of ataque.cost">Custo: {{ cost }}</li>
           <li>Descrição: {{ ataque.text }}</li>
       </ul>
     </div>
@@ -30,7 +30,7 @@
       </ul>
     </div>
 
-    <div *ngIf="carta.attacks">
+    <div *ngIf="carta.weaknesses">
       <h2>Fraquezas: </h2>
       <ul *ngFor="let fraqueza of carta.weaknesses">
           <li>{{ fraqueza.type }} : {{ fraqueza.value }}</li>
